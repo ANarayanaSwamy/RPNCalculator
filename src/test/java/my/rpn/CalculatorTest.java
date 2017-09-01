@@ -4,6 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for Calculator
+ * 
+ * @author NarayanaSwamy
+ */
 public class CalculatorTest {
 
 	private Calculator calculator;

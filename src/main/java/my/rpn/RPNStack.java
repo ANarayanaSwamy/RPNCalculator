@@ -107,8 +107,10 @@ public class RPNStack {
 	 * This method will restore the stack data 
 	 */
 	public void restore() {
-		RPNState momento = undoStates.pop();
-		stack = momento.getState();
+		if (false == undoStates.isEmpty()) {
+			RPNState momento = undoStates.pop();
+			stack = momento.getState();
+		}
 	}
 
 	@Override
