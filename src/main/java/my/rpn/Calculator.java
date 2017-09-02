@@ -41,9 +41,11 @@ public class Calculator implements OperationContext {
 					// Execute the operation and add the result to stack.
 					Double result = operator.execute(this);
 					rpnStack.push(result);
-				} catch (OperationFailedException e) {
+				}catch(InsufficientParameterException ipe){
 					throw new RPNException("Operator " + token + " (position: "
 							+ i + "): insufficient parameters");
+				} catch (OperationFailedException e) {
+					throw new RPNException("Operation "+token+" failed.",e);
 				}
 			}
 		}
@@ -60,7 +62,7 @@ public class Calculator implements OperationContext {
 
 	// Methods exposed to operations via context
 	@Override
-	public Double[] getElements(int num) throws OperationFailedException {
+	public Double[] getElements(int num) throws InsufficientParameterException {
 		return rpnStack.popElements(num);
 	}
 

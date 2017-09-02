@@ -43,6 +43,17 @@ public class CalculatorTest {
 	}
 
 	@Test
+	public void calculatorCannotDivideByZero() throws Exception {
+		try {
+			calculator.processInput("2 0 /");
+			Assert.fail("No exception thrown for 0");
+		} catch (RPNException e) {
+			Assert.assertEquals("Operation / failed.", e.getMessage());
+			Assert.assertEquals("Cannot divide by 0", e.getCause().getMessage());
+		}
+	}
+
+	@Test
 	public void calculatorCanPerformSquareRootOperation() throws Exception {
 		calculator.processInput("2 sqrt");
 		assertStack("stack: 1.4142135624");

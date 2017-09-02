@@ -80,12 +80,12 @@ public class RPNStack {
 	 * @param num
 	 *            Number of elements to be popped from Stack
 	 * @return Popped elements
-	 * @throws OperationFailedException
+	 * @throws InsufficientParameterException
 	 *             When elements is not enough to be popped.
 	 */
-	public Double[] popElements(int num) throws OperationFailedException {
+	public Double[] popElements(int num) throws InsufficientParameterException {
 		if (stack.size() < num) {
-			throw new OperationFailedException("Insufficient parameters");
+			throw new InsufficientParameterException("Insufficient parameters");
 		}
 		saveState();
 		Double[] res = new Double[num];

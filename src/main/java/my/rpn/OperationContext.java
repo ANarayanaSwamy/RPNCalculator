@@ -14,10 +14,10 @@ public interface OperationContext {
 	 * @param num
 	 *            Number of elements to be popped from Stack
 	 * @return Values from stack
-	 * @throws OperationFailedException
+	 * @throws InsufficientParameterException
 	 *             When the elements are not sufficient as per the request.
 	 */
-	public Double[] getElements(int num) throws OperationFailedException;
+	public Double[] getElements(int num) throws InsufficientParameterException;
 
 	/**
 	 * This method clears the stack.

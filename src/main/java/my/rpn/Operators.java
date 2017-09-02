@@ -17,9 +17,9 @@ public class Operators {
 		public Double execute(OperationContext context)
 				throws OperationFailedException {
 			Double[] elements = context.getElements(2);
-			Double firstParam = elements[0];
-			Double secondParam = elements[1];
-			return firstParam + secondParam;
+			Double topElement = elements[0];
+			Double nextElement = elements[1];
+			return topElement + nextElement;
 		}
 	};
 	private static final Operator MINUS_OPERATOR = new Operator() {
@@ -28,9 +28,9 @@ public class Operators {
 		public Double execute(OperationContext context)
 				throws OperationFailedException {
 			Double[] elements = context.getElements(2);
-			Double firstParam = elements[0];
-			Double secondParam = elements[1];
-			return secondParam - firstParam;
+			Double topElement = elements[0];
+			Double nextElement = elements[1];
+			return nextElement - topElement;
 		}
 
 	};
@@ -40,9 +40,9 @@ public class Operators {
 		public Double execute(OperationContext context)
 				throws OperationFailedException {
 			Double[] elements = context.getElements(2);
-			Double firstParam = elements[0];
-			Double secondParam = elements[1];
-			return firstParam * secondParam;
+			Double topElement = elements[0];
+			Double nextElement = elements[1];
+			return topElement * nextElement;
 		}
 
 	};
@@ -52,9 +52,12 @@ public class Operators {
 		public Double execute(OperationContext context)
 				throws OperationFailedException {
 			Double[] elements = context.getElements(2);
-			Double firstParam = elements[0];
-			Double secondParam = elements[1];
-			return secondParam / firstParam;
+			Double topElement = elements[0];
+			Double nextElement = elements[1];
+			if(topElement == 0){
+				throw new OperationFailedException("Cannot divide by 0");
+			}
+			return nextElement / topElement;
 		}
 
 	};
